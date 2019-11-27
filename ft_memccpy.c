@@ -3,23 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ladawi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 10:35:17 by ladawi            #+#    #+#             */
-/*   Updated: 2019/10/09 12:20:03 by ladawi           ###   ########.fr       */
+/*   Updated: 2019/11/18 14:48:33 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
-void	ft_memccpy(void *dest, const void *src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char	*pdest;
-	char	*psrc;
+	size_t i;
 
-	pdest = (char *)dest;
-	psrc = (char *)src;
-	while (n-- > 0 && *psrc != c)
-		*pdest++ = *psrc++;
-	*pdest = *psrc;
+	i = 0;
+	while (i < n)
+	{
+		*(char*)(dst + i) = *(char*)(src + i);
+		if (*(unsigned char*)(src + i) == (unsigned char)c)
+			return ((dst + i + 1));
+		i++;
+	}
+	return (0);
 }

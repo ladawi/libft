@@ -6,11 +6,10 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 10:32:34 by ladawi            #+#    #+#             */
-/*   Updated: 2019/10/23 11:05:01 by ladawi           ###   ########.fr       */
+/*   Updated: 2019/11/10 18:55:08 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)

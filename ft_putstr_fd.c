@@ -6,20 +6,18 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 13:54:51 by ladawi            #+#    #+#             */
-/*   Updated: 2019/10/15 13:44:05 by ladawi           ###   ########.fr       */
+/*   Updated: 2019/11/18 16:18:11 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {
 	int		len;
-	int		i;
 
+	if (s == 0)
+		return ;
 	len = ft_strlen(s);
-	i = 0;
-	while (i < len && s[i] != '\0')
-		ft_putchar_fd(s[i++], fd);
+	write(fd, s, len);
 }

@@ -6,56 +6,58 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 12:47:17 by ladawi            #+#    #+#             */
-/*   Updated: 2019/10/15 10:31:45 by ladawi           ###   ########.fr       */
+/*   Updated: 2019/11/18 14:44:19 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		ft_len(long n)
+static	int		ft_count_length(unsigned int n)
 {
-	int		len;
+	int		length;
 
-	len = 0;
-	if (n < 0)
+	length = 1;
+	while (n / 10 > 0)
 	{
-		n = n * -1;
-		len++;
-	}
-	while (n > 0)
-	{
+		length++;
 		n = n / 10;
-		len++;
 	}
-	return (len);
+	return (length);
 }
 
-char	*ft_itoa(int n)
+static	void	ft_fill_number(char *number, int n, int nb_length)
 {
-	char	*c;
-	long	nb;
-	int		len;
+	unsigned int num;
 
-	nb = n;
-	len = ft_len(nb);
-	if (!(c = (char*)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	c[len--] = '\0';
-	if (n == 0)
-	{
-		c[0] = 48;
-		return (c);
-	}
 	if (n < 0)
 	{
-		c[0] = '-';
-		n *= -1;
+		number[0] = '-';
+		num = -n;
 	}
-	while (n > 0)
+	else
+		num = n;
+	while (--nb_length >= 0)
 	{
-		c[len--] = 48 + (n % 10);
-		n /= 10;
+		if (number[nb_length] != '-')
+		{
+			number[nb_length] = num % 10 + '0';
+			num = num / 10;
+		}
 	}
-	return (c);
+}
+
+char			*ft_itoa(int n)
+{
+	char	*number;
+	int		nb_length;
+
+	if (n < 0)
+		nb_length = 1 + ft_count_length(-n);
+	else
+		nb_length = ft_count_length(n);
+	if (!(number = (char*)malloc(sizeof(char) * (nb_length + 1))))
+		return (0);
+	ft_fill_number(number, n, nb_length);
+	number[nb_length] = '\0';
+	return (number);
 }

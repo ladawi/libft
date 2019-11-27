@@ -6,21 +6,23 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:11:16 by ladawi            #+#    #+#             */
-/*   Updated: 2019/10/11 13:37:22 by ladawi           ###   ########.fr       */
+/*   Updated: 2019/11/24 16:21:01 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*ptr;
-	char	*s2;
+	char	*str;
 
-	s2 = (char *)s + start;
-	if (!(ptr = (char *)malloc(len + 1)))
+	if (s == 0)
+		return (NULL);
+	if (!(str = (char*)malloc(sizeof(char) * (len + 1))))
 		return (0);
-	ft_strlcpy(ptr, s2, len);
-	return (ptr);
+	ft_bzero(str, len + 1);
+	if (start > ft_strlen(s))
+		return (str);
+	ft_strlcpy(str, s + start, len + 1);
+	return (str);
 }

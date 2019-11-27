@@ -6,30 +6,20 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:59:56 by ladawi            #+#    #+#             */
-/*   Updated: 2019/10/17 13:50:41 by ladawi           ###   ########.fr       */
+/*   Updated: 2019/11/18 16:46:05 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-int	ft_strncmp(const void *s1, const void *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char	*ps1;
-	unsigned char	*ps2;
+	size_t i;
 
-	ps1 = (unsigned char *)s1;
-	ps2 = (unsigned char *)s2;
-	while (n-- > 0)
-	{
-		if (*ps1 != *ps2)
-			return (*ps1 - *ps2);
-		else
-		{
-			ps1++;
-			ps2++;
-		}
-		if (*ps1 == 0 | *ps2 == 0)
-			return (0);
-	}
-	return (0);
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (s1[i] == s2[i] && i < n - 1 && s1[i] && s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

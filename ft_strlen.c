@@ -6,20 +6,18 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:02:52 by ladawi            #+#    #+#             */
-/*   Updated: 2019/10/11 14:54:59 by ladawi           ###   ########.fr       */
+/*   Updated: 2019/11/18 16:33:43 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
-	char	*ptr;
-	int		len;
+	size_t i;
 
-	len = 0;
-	ptr = (char *)s;
-	while (*ptr++ != 0)
-		len++;
-	return (len);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

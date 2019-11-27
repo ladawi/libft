@@ -6,72 +6,68 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 09:59:14 by ladawi            #+#    #+#             */
-/*   Updated: 2019/10/21 13:58:05 by ladawi           ###   ########.fr       */
+/*   Updated: 2019/11/19 17:54:04 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include <stdio.h>
 
-size_t	getelem(char *s, char c)
+static	int		ft_count_words(char const *s, char c)
 {
-	int		i;
-	int		nbr;
+	int		count;
 
-	i = -1;
-	nbr = 0;
-	while (s[++i])
-	{
-		if (s[i] != c)
-		{
-			nbr++;
-			while (s[i] != c && s[i] != 0)
-				i++;
-		}
-	}
-	return (nbr);
-}
-
-int		getchar(char const *s, char c)
-{
-	int	len;
-	int	i;
-
-	len = 0;
-	i = 0;
-	while (s[i] != c && s[i] != 0)
-	{
-		i++;
-		len++;
-	}
-	return (len);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**tab;
-	int		nelem;
-	int		i;
-
-	i = 0;
-	nelem = getelem((char *)s, c);
-	if (!(tab = (char **)malloc(sizeof(char *) * (nelem + 1))))
-		return (NULL);
-	tab[nelem] = 0;
-	while (i < nelem)
+	count = 0;
+	while (*s)
 	{
 		while (*s == c)
 			s++;
-		if (!(tab[i] = ft_substr(s, 0, getchar(s, c))))
+		if (*s != '\0')
+			count++;
+		while (*s != c && *s)
+			s++;
+	}
+	return (count);
+}
+
+static	int		ft_count_letters(char const *s, char c)
+{
+	int		count;
+
+	count = 0;
+	while (*s != c && *s)
+	{
+		count++;
+		s++;
+	}
+	return (count);
+}
+
+char			**ft_split(char const *s, char c)
+{
+	char	**split_strs;
+	int		nb_words;
+	int		i;
+
+	nb_words = ft_count_words(s, c);
+	if (!(split_strs = (char**)malloc(sizeof(char*) * (nb_words + 1))))
+		return (0);
+	i = 0;
+	while (i < nb_words)
+	{
+		while (*s == c)
+			s++;
+		if (!(split_strs[i] = ft_substr(s, 0, ft_count_letters(s, c))))
 		{
-			while (i-- > 0)
-				free(tab[i]);
-			free(tab);
+			while (i >= 0)
+				free(split_strs[i--]);
+			free(split_strs);
 			return (0);
 		}
-		while (*s != c && *s != 0)
+		while (*s != c && *s)
 			s++;
 		i++;
 	}
-	return (tab);
+	split_strs[i] = NULL;
+	return (split_strs);
 }
