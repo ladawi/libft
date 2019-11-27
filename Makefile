@@ -6,7 +6,7 @@
 #    By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 09:29:31 by ladawi            #+#    #+#              #
-#    Updated: 2019/11/27 13:22:23 by ladawi           ###   ########.fr        #
+#    Updated: 2019/11/27 13:25:42 by ladawi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ $(NAME): $(SRCO) $(INCLUDE)
 
 %.o: %.c
 	@gcc $(FLAGS) -c $< -o $@
-	@echo -n .
 
 clean:
 	@rm -rf $(SRCO)
