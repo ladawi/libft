@@ -6,7 +6,7 @@
 #    By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 09:29:31 by ladawi            #+#    #+#              #
-#    Updated: 2019/11/27 13:25:42 by ladawi           ###   ########.fr        #
+#    Updated: 2019/12/21 19:02:53 by ladawi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c\
 ft_strdup.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c\
 ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c\
 ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
+ft_itoa_base.c ft_pow.c\
 
 SRCO = $(SRC:%.c= %.o)
 

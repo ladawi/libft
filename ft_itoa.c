@@ -6,13 +6,13 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 12:47:17 by ladawi            #+#    #+#             */
-/*   Updated: 2019/11/18 14:44:19 by ladawi           ###   ########.fr       */
+/*   Updated: 2019/12/21 12:41:41 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int		ft_count_length(unsigned int n)
+static	int		ft_count_length(unsigned long int n)
 {
 	int		length;
 
@@ -25,9 +25,9 @@ static	int		ft_count_length(unsigned int n)
 	return (length);
 }
 
-static	void	ft_fill_number(char *number, int n, int nb_length)
+static	void	ft_fill_number(char *number, long int n, int nb_length)
 {
-	unsigned int num;
+	unsigned long int num;
 
 	if (n < 0)
 	{
@@ -46,7 +46,7 @@ static	void	ft_fill_number(char *number, int n, int nb_length)
 	}
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long int n)
 {
 	char	*number;
 	int		nb_length;
