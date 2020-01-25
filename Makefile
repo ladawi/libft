@@ -6,7 +6,7 @@
 #    By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 09:29:31 by ladawi            #+#    #+#              #
-#    Updated: 2020/01/25 16:44:42 by ladawi           ###   ########.fr        #
+#    Updated: 2020/01/25 17:41:03 by ladawi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ get_next_line.c\
 ft_intlen.c\
 ft_intlenbase.c\
 ft_strjoinfree.c\
+ft_ultoax.c\
 
 LIST = $(addprefix src/,$(SRC))
 
