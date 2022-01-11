@@ -6,14 +6,14 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:01:17 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/25 16:24:16 by ladawi           ###   ########.fr       */
+/*   Updated: 2022/01/11 14:37:32 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 #include <stdio.h>
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int		nb;
 	int		sign;

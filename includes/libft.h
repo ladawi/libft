@@ -6,7 +6,7 @@
 /*   By: ladawi <ladawi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:37:57 by ladawi            #+#    #+#             */
-/*   Updated: 2020/01/25 16:39:55 by ladawi           ###   ########.fr       */
+/*   Updated: 2022/01/11 16:38:14 by ladawi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int				ft_intlen(long int nb);
 int				ft_intlenbase(long int nb, int base);
 char			*ft_strjoinfree(char const *s1, char *s2, int nb);
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -72,6 +72,6 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void
-(*del)(void *));
+					(*del)(void *));
 
 #endif
